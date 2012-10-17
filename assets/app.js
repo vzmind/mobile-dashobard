@@ -1,11 +1,24 @@
+//<debug>
+Ext.Loader.setPath({
+    'Ext': 'touch/src',
+    'MobileDashboard': 'app'
+});
+//</debug>
+
 Ext.application({
-    name: 'GS',
+    name: 'MobileDashboard',
 
     requires: [
-        'Ext.MessageBox'
+        'MobileDashboard.view.Main',
+        'MobileDashboard.view.PieChart',
+        'MobileDashboard.view.OtherChart',
+        'MobileDashboard.store.SampleStore'
+    ],
+    controllers : [
+        'App'
     ],
 
-    views: ['Main'],
+    views: ['PieChart'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
@@ -26,47 +39,15 @@ Ext.application({
     },
 
     launch: function() {
-        Ext.create("Ext.tab.Panel", {
-            fullscreen: true,
-            tabBarPosition: 'bottom',
+        // Destroy the #appLoadingIndicator element
+        Ext.fly('appLoadingIndicator').destroy();
 
-            items: [
-                {
-                    title: 'Contact',
-                    iconCls: 'user',
-                    xtype: 'formpanel',
-                    url: 'contact.php',
-                    layout: 'vbox',
-
-                    items: [
-                        {
-                            xtype: 'fieldset',
-                            title: 'Contact Us',
-                            instructions: '(email address is optional)',
-                            items: [
-                                {
-                                    xtype: 'textfield',
-                                    label: 'Login'
-                                },
-                                {
-                                    xtype: 'passwordfield',
-                                    label: 'Password'
-                                }
-                                
-                            ]
-                        },
-                        {
-                            xtype: 'button',
-                            text: 'Send',
-                            ui: 'confirm',
-                            handler: function() {
-                                this.up('formpanel').submit();
-                            }
-                        }
-                    ]
-                }
-            ]
-        });
+        Ext.Viewport.setLayout('fit');
+        // Initialize the main view
+        Ext.Viewport.add(
+            {
+                xtype: 'mainview'
+            });
     },
 
     onUpdated: function() {
@@ -81,3 +62,5 @@ Ext.application({
         );
     }
 });
+
+

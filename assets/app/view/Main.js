@@ -1,5 +1,6 @@
-Ext.define("GS.view.Main", {
-    extend: 'Ext.tab.Panel',
+Ext.define('MobileDashboard.view.Main', {
+    extend: 'Ext.TabPanel',
+    xtype: 'mainview',
     requires: [
         'Ext.TitleBar',
         'Ext.Video'
@@ -9,7 +10,7 @@ Ext.define("GS.view.Main", {
 
         items: [
             {
-                title: 'Vz en force',
+                title: 'Welcome',
                 iconCls: 'home',
 
                 styleHtmlContent: true,
@@ -18,7 +19,7 @@ Ext.define("GS.view.Main", {
                 items: {
                     docked: 'top',
                     xtype: 'titlebar',
-                    title: 'Vz sur Sencha'
+                    title: 'Welcome to Sencha Touch 2'
                 },
 
                 html: [
@@ -41,6 +42,37 @@ Ext.define("GS.view.Main", {
                         xtype: 'video',
                         url: 'http://av.vimeo.com/64284/137/87347327.mp4?token=1330978144_f9b698fea38cd408d52a2393240c896c',
                         posterUrl: 'http://b.vimeocdn.com/ts/261/062/261062119_640.jpg'
+                    }
+                ]
+            },
+            {
+                title: "Pie Chart",
+                iconCls: 'chart1',
+                items: [
+                    {
+                        docked: 'top',
+                        xtype: 'titlebar',
+                        title: 'My first Pie'
+                    },
+                    {
+                        xtype: "piechart",
+                        title: 'a nice pie'
+                    }
+                ]
+            },
+            {
+                title: "Other Chart",
+                iconCls: 'chart2',
+
+                items: [
+                    {
+                        docked: 'top',
+                        xtype: 'titlebar',
+                        title: 'My second chart'
+                    },
+                    {
+                        xtype: "otherchart",
+                        title: 'An other chart'
                     }
                 ]
             }

@@ -29,6 +29,7 @@ require 'omniauth-salesforce'
 
   get '/auth/salesforce/callback' do
     token = request.env['omniauth.auth']['credentials']['token']
+    session[:token] = token
     config = YAML.load_file("config/salesforce.yml") rescue {}
     @client_id = config["client_id"]
     @client_secret = config["client_secret"]
@@ -46,16 +47,13 @@ require 'omniauth-salesforce'
     content_type :json
     session['client'].materialize('Lead')
     leads = Lead.all
-    puts leads.inspect
-    leads.inspect.to_json
+          leads.collect! { |obj| {
+                          :id    => obj.Id,
+                          :name  => obj.LastName,
+                          :email => obj.Email}
+                        }.to_json
   end
 
-  get 'test' do
-    data = ["hello","hi","hallo"]
-    jsonp data, 'functionA'
-  end
 
-  get "/logout" do
-    redirect "/"
-  end
+
  
