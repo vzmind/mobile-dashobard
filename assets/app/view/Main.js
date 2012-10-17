@@ -19,32 +19,16 @@ Ext.define('MobileDashboard.view.Main', {
                 items: {
                     docked: 'top',
                     xtype: 'titlebar',
-                    title: 'Welcome to Sencha Touch 2'
+                    title: 'Tquila Mobile Dashboard'
                 },
 
                 html: [
-                    "You've just generated a new Sencha Touch 2 project. What you're looking at right now is the ",
-                    "contents of <a target='_blank' href=\"app/view/Main.js\">app/view/Main.js</a> - edit that file ",
-                    "and refresh to change what's rendered here."
+                    "Welcome on that Tquila demonstration Sencha app",
+                    "You will learn here how to connect your Sencha app to Salesforce",
+                    "and how to create beautiful charts with direct data stream from your Org"
                 ].join("")
             },
-            {
-                title: 'Get Started',
-                iconCls: 'action',
-
-                items: [
-                    {
-                        docked: 'top',
-                        xtype: 'titlebar',
-                        title: 'Getting Started'
-                    },
-                    {
-                        xtype: 'video',
-                        url: 'http://av.vimeo.com/64284/137/87347327.mp4?token=1330978144_f9b698fea38cd408d52a2393240c896c',
-                        posterUrl: 'http://b.vimeocdn.com/ts/261/062/261062119_640.jpg'
-                    }
-                ]
-            },
+            { xtype: 'leadscard' },
             {
                 title: "Pie Chart",
                 iconCls: 'chart1',

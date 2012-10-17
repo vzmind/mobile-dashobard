@@ -10,6 +10,7 @@ Ext.application({
 
     requires: [
         'MobileDashboard.view.Main',
+        'MobileDashboard.view.LeadsList',
         'MobileDashboard.view.PieChart',
         'MobileDashboard.view.OtherChart',
         'MobileDashboard.store.SampleStore'
@@ -17,7 +18,8 @@ Ext.application({
     controllers : [
         'App'
     ],
-
+    models: ["Lead"],
+    stores: ["Leads"],
     views: ['PieChart'],
 
     icon: {
@@ -41,6 +43,11 @@ Ext.application({
     launch: function() {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
+
+        //Load up the Store associated with the controller and its views. 
+        console.log("load Leads");
+        var leadsStore = Ext.getStore("Leads");
+        leadsStore.load();
 
         Ext.Viewport.setLayout('fit');
         // Initialize the main view
