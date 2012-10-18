@@ -5,6 +5,7 @@ require 'sinatra/reloader'
 require 'sinatra/json'
 require "sinatra/jsonp"
 require "redis-sinatra"
+require 'redis-rack'
 require 'haml'
 require 'databasedotcom'
 require 'yaml'
