@@ -11,9 +11,10 @@ require 'omniauth'
 require 'omniauth-salesforce'
 
 
-  enable :sessions
-  set :session_secret, 'super secret'
-  
+  #enable :sessions
+  #set :session_secret, 'super secret'
+  use Rack::Session::Cookie
+
   set :public_folder, File.dirname(__FILE__) + '/assets'
 
   config = YAML.load_file("config/salesforce.yml") rescue {}
