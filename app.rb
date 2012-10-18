@@ -4,7 +4,7 @@ require "sinatra/content_for"
 require 'sinatra/reloader'
 require 'sinatra/json'
 require "sinatra/jsonp"
-require "redis-store"
+require "redis-sinatra"
 require 'haml'
 require 'databasedotcom'
 require 'yaml'
@@ -12,8 +12,8 @@ require 'omniauth'
 require 'omniauth-salesforce'
 
 
-  uri = URI.parse(ENV["REDISTOGO_URL"])
-  Resque.redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+
+  use Rack::Session::Redis, :redis_server => ENV["REDISTOGO_URL"]
 
   use Rack::Session::Redis
 
