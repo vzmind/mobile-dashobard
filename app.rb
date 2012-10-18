@@ -15,8 +15,6 @@ require 'omniauth-salesforce'
 
   use Rack::Session::Redis, :redis_server => ENV["REDISTOGO_URL"]
 
-  use Rack::Session::Redis
-
   set :public_folder, File.dirname(__FILE__) + '/assets'
 
   config = YAML.load_file("config/salesforce.yml") rescue {}
