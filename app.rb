@@ -14,7 +14,11 @@ require 'omniauth-salesforce'
 
 
 
-  use Rack::Session::Redis, :redis_server => ENV["REDISTOGO_URL"]
+  use Rack::Session::Redis, {
+    :url          => ENV["REDISTOGO_URL"],
+    :namespace    => "rack:session",
+    :expire_after => 600
+  }
 
   set :public_folder, File.dirname(__FILE__) + '/assets'
 
