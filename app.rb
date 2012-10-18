@@ -9,10 +9,11 @@ require 'databasedotcom'
 require 'yaml'
 require 'omniauth'
 require 'omniauth-salesforce'
-require 'sinatra/session'
+require "redis-store"
 
-  set :session_fail, '/'
-  set :session_secret, 'So0perSeKr3t!'
+  
+  use Rack::Session::Redis, :redis_server => ENV['REDISTOGO_URL']
+
 
   set :public_folder, File.dirname(__FILE__) + '/assets'
 
@@ -31,7 +32,6 @@ require 'sinatra/session'
 
   get '/auth/salesforce/callback' do
     token = request.env['omniauth.auth']['credentials']['token']
-    session_start!
     session[:token] = token
     config = YAML.load_file("config/salesforce.yml") rescue {}
     @client_id = config["client_id"]

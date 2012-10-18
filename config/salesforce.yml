@@ -1,11 +1,11 @@
 ---
 #sandbox:
-#client_id: '3MVG9rFJvQRVOvk4936qVmFb9yxKEdYXMT_XgaRSQwu0uIWXBa9JKV5pyYqQy1rR8E_gA8TJkir4t88wjQ0Ot'
-#client_secret: '932864809905970491'
+client_id: '3MVG9rFJvQRVOvk4936qVmFb9yxKEdYXMT_XgaRSQwu0uIWXBa9JKV5pyYqQy1rR8E_gA8TJkir4t88wjQ0Ot'
+client_secret: '932864809905970491'
 
 # production
-client_id: '3MVG99qusVZJwhslwreUWrBMjJakYQWB_Zhp0SbvB9Fx7jXusXkz_As33PeDTBhlP4MDZEowIcUpzSqznGwTF'
-client_secret: '2782504905280350288'
+#client_id: '3MVG99qusVZJwhslwreUWrBMjJakYQWB_Zhp0SbvB9Fx7jXusXkz_As33PeDTBhlP4MDZEowIcUpzSqznGwTF'
+#client_secret: '2782504905280350288'
 
 
 
