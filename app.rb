@@ -9,10 +9,9 @@ require 'databasedotcom'
 require 'yaml'
 require 'omniauth'
 require 'omniauth-salesforce'
-require "redis-store"
 
   
-  use Rack::Session::Redis, :redis_server => ENV['REDISTOGO_URL']
+  enable :sessions
 
 
   set :public_folder, File.dirname(__FILE__) + '/assets'
