@@ -6,6 +6,7 @@ require 'sinatra/json'
 require "sinatra/jsonp"
 require "redis-sinatra"
 require 'redis-rack'
+require 'rack/session/redis'
 require 'haml'
 require 'databasedotcom'
 require 'yaml'
@@ -16,7 +17,6 @@ require 'omniauth-salesforce'
 
   use Rack::Session::Redis, {
     :url          => ENV["REDISTOGO_URL"],
-    :namespace    => "rack:session",
     :expire_after => 600
   }
 
@@ -44,6 +44,10 @@ require 'omniauth-salesforce'
     dbdc = Databasedotcom::Client.new(:client_id => @client_id, :client_secret => @client_secret)
     dbdc.authenticate :token => session[:token], :instance_url => "http://na14.salesforce.com"
     session[:client] = dbdc
+
+    puts 'client 1'
+    puts dbdc
+    puts session[:client]
     redirect '/home'
   end
 
@@ -53,6 +57,9 @@ require 'omniauth-salesforce'
 
   get '/leads.json' do
     content_type :json
+    puts 'client 2'
+    puts session[:client]
+
     session[:client].materialize('Lead')
     leads = Lead.all
           leads.collect! { |obj| {

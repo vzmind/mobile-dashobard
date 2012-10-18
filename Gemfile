@@ -13,4 +13,5 @@ gem 'haml', "3.1.4"
 gem 'heroku', "2.23.0"
 gem 'redis-sinatra'
 gem  'redis-rack'
+gem 'rack-session-redis'
 gem 'compass'

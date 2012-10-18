@@ -48,6 +48,8 @@ GEM
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
+    rack-session-redis (0.0.3)
+      redis (>= 2.0.0)
     rack-test (0.6.1)
       rack (>= 1.0)
     redis (3.0.2)
@@ -96,6 +98,7 @@ DEPENDENCIES
   json
   omniauth (= 1.0.2)
   omniauth-salesforce
+  rack-session-redis
   redis-rack
   redis-sinatra
   sinatra (~> 1.3.2)
