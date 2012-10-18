@@ -10,7 +10,7 @@ Ext.application({
 
     requires: [
         'MobileDashboard.view.Main',
-        'MobileDashboard.view.LeadsList',
+        'MobileDashboard.view.LeadPanel',
         'MobileDashboard.view.PieChart',
         'MobileDashboard.view.OtherChart',
         'MobileDashboard.store.SampleStore'

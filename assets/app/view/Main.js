@@ -28,7 +28,7 @@ Ext.define('MobileDashboard.view.Main', {
                     "and how to create beautiful charts with direct data stream from your Org"
                 ].join("")
             },
-            { xtype: 'leadscard' },
+            { xtype: 'leadpanel' },
             {
                 title: "Pie Chart",
                 iconCls: 'chart1',
