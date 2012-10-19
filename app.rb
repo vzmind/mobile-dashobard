@@ -52,7 +52,14 @@ require 'omniauth-salesforce'
           leads.collect! { |obj| {
                           :id    => obj.Id,
                           :name  => obj.LastName,
-                          :email => obj.Email}
+                          :email => obj.Email,
+                          :leadsource => obj.LeadSource,
+                          :status => obj.Status,
+                          :phone => obj.Phone,
+                          :company => obj.Company,
+                          :website => obj.Website,
+                          :annualrevenue => obj.AnnualRevenue
+                        }
                         }.to_json
   end
 

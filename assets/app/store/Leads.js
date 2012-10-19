@@ -8,6 +8,10 @@
 Ext.define("MobileDashboard.store.Leads", {
     extend: "Ext.data.Store",
     model: 'MobileDashboard.model.Lead',
+    sorters: 'company',
+    grouper: function(record){
+    	return record.get('company');
+    },
     proxy: {
         type: 'ajax',
         url : 'leads.json'

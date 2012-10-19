@@ -28,6 +28,7 @@ Ext.define("MobileDashboard.view.LeadsList", {
       //The main list and its properties. 
       xtype: "list",
       store: "Leads",
+      grouped: true,
       onItemDisclosure: true,
 
       //The template for display if the Store is empty of records.
@@ -38,7 +39,7 @@ Ext.define("MobileDashboard.view.LeadsList", {
       //The template for the display of each list item representing one record.
       //One row will display for each record in the data Store.
       //The fields referenced are from the entity's Model. 
-      itemTpl: '<div class="list-item-line-main">{name}</div><div class="list-item-line-detail">{email}</div>'
+      itemTpl: '<div class="list-item-line-main"><strong>{name}</strong></div><div class="list-item-line-detail">{company}</div>'
     }],
   }
 });
