@@ -49,11 +49,28 @@ Ext.define("MobileDashboard.view.OtherChart", {
                 size: 7,
                 radius: 7
             },
-            fill: true,
+            style: {
+                stroke: 'rgb(143,103,103)'
+            },
             xField: 'name',
             yField: 'data3',
             marker: {
-                type: 'circle',
+                type: 'path',
+                path: ['M', -2, 0, 0, 2, 2, 0, 0, -2, 'Z'],
+                stroke: 'red',
+                lineWidth: 0
+            }
+        },{
+            type: 'line',
+            highlight: {
+                size: 7,
+                radius: 7
+            },
+            fill: true,
+            xField: 'name',
+            yField: 'data5',
+            marker: {
+                type: 'path',
                 radius: 4,
                 lineWidth: 0
             }

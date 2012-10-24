@@ -30,13 +30,13 @@ Ext.define('MobileDashboard.view.Main', {
             },
             { xtype: 'leadpanel' },
             {
-                title: "Pie Chart",
+                title: "Opportunities",
                 iconCls: 'chart1',
                 items: [
                     {
                         docked: 'top',
                         xtype: 'titlebar',
-                        title: 'My first Pie'
+                        title: 'Opportunities by amount'
                     },
                     {
                         xtype: "piechart",

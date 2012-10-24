@@ -13,13 +13,14 @@ Ext.application({
         'MobileDashboard.view.LeadPanel',
         'MobileDashboard.view.PieChart',
         'MobileDashboard.view.OtherChart',
-        'MobileDashboard.store.SampleStore'
+        'MobileDashboard.store.SampleStore',
+        'MobileDashboard.store.Opportunities'
     ],
     controllers : [
         'App'
     ],
-    models: ["Lead"],
-    stores: ["Leads"],
+    models: ["Lead","Opportunity"],
+    stores: ["Leads","Opportunities"],
     views: ['PieChart'],
 
     icon: {
@@ -48,6 +49,11 @@ Ext.application({
         console.log("load Leads");
         var leadsStore = Ext.getStore("Leads");
         leadsStore.load();
+
+        //Load up the Store associated with the controller and its views. 
+        console.log("load Opportunities");
+        var opportunitiesStore = Ext.getStore("Opportunities");
+        opportunitiesStore.load();
 
         Ext.Viewport.setLayout('fit');
         // Initialize the main view

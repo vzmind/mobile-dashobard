@@ -63,6 +63,28 @@ require 'omniauth-salesforce'
                         }.to_json
   end
 
+  get '/opportunities.json' do
+    content_type :json
+    session[:client].materialize('opportunity')
+    opportunities = Opportunity.all
+          opportunities.collect! { |obj| {
+                          :id    => obj.Id,
+                          :name  => obj.Name,
+                          :amount => obj.Amount,
+                          :account => obj.AccountId,
+                          :stage => obj.StageName,
+                          :probability => obj.Probability
+                        }
+                        }.to_json
+    #data = [{'name' => 'Stage 1', 'amount' => 10},
+    #    {'name' => 'metric two', 'amount' => 7},
+    #    {'name' => 'metric three', 'amount' => 5},
+    #    {'name' => 'metric four', 'amount' => 2},
+    #    {'name' => 'metric five', 'amount' => 27}]
+    #data.to_json
+    
+  end
+
 
 
  
