@@ -2,6 +2,10 @@ Ext.define("MobileDashboard.view.OpportunitiesByType", {
     extend: "Ext.chart.Chart",
     xtype: "opportunitiesbytype",
     config:{
+        interactions: [{
+            type: 'panzoom',
+            zoomOnPanGesture: true
+        }],        
         animate: true,
         width:600,
         height:600,

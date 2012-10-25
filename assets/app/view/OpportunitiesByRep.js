@@ -2,6 +2,10 @@ Ext.define("MobileDashboard.view.OpportunitiesByRep", {
     extend: "Ext.chart.Chart",
     xtype: "opportunitiesbyrep",
     config:{
+        interactions: [{
+            type: 'panzoom',
+            zoomOnPanGesture: true
+        }],
         animate: true,
         width:600,
         height:600,

@@ -3,16 +3,16 @@ Ext.define("MobileDashboard.view.OpportunitiesByMonth", {
     xtype: "opportunitiesbymonth",
     config:{
         animate: true,
-        width:600,
+        width:800,
         height:600,
 
-        store: 'SampleStore',
+        store: 'OpportunitiesByMonth',
         axes: [{
             type: 'numeric',
             position: 'left',
-            fields: ['data1'],
+            fields: ['amount'],
             title: {
-                text: 'Sample Values',
+                text: 'Amount in $',
                 fontSize: 15
             },
             grid: true,
@@ -20,9 +20,9 @@ Ext.define("MobileDashboard.view.OpportunitiesByMonth", {
         }, {
             type: 'category',
             position: 'bottom',
-            fields: ['name'],
+            fields: ['date'],
             title: {
-                text: 'Sample Values',
+                text: 'Date',
                 fontSize: 15
             }
         }],
@@ -35,43 +35,12 @@ Ext.define("MobileDashboard.view.OpportunitiesByMonth", {
             style: {
                 stroke: 'rgb(143,203,203)'
             },
-            xField: 'name',
-            yField: 'data1',
+            xField: 'date',
+            yField: 'amount',
             marker: {
                 type: 'path',
                 path: ['M', -2, 0, 0, 2, 2, 0, 0, -2, 'Z'],
                 stroke: 'blue',
-                lineWidth: 0
-            }
-        }, {
-            type: 'line',
-            highlight: {
-                size: 7,
-                radius: 7
-            },
-            style: {
-                stroke: 'rgb(143,103,103)'
-            },
-            xField: 'name',
-            yField: 'data3',
-            marker: {
-                type: 'path',
-                path: ['M', -2, 0, 0, 2, 2, 0, 0, -2, 'Z'],
-                stroke: 'red',
-                lineWidth: 0
-            }
-        },{
-            type: 'line',
-            highlight: {
-                size: 7,
-                radius: 7
-            },
-            fill: true,
-            xField: 'name',
-            yField: 'data5',
-            marker: {
-                type: 'path',
-                radius: 4,
                 lineWidth: 0
             }
         }]

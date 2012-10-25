@@ -3,7 +3,7 @@ Ext.define("MobileDashboard.view.PieChart", {
     xtype: "piechart",
     config:{
         animate: true,
-        width:600,
+        width:800,
         height:600,
         themeCls: 'pie1',
         theme: 'Demo',
@@ -13,11 +13,14 @@ Ext.define("MobileDashboard.view.PieChart", {
             position: 'left',
             width: 200
         },
-        interactions: [
-                        {
-                            type: 'rotate'
-                        },
-                      ],
+        interactions: [{
+        type: 'rotate'},{
+        type: 'iteminfo',
+            listeners: {
+                show: function(me, item, panel) {
+                    panel.setHtml('Opportunity expected amount: $ ' + item.record.get('amount'));
+                }
+        }}],
         colors: ["#115fa6", "#94ae0a", "#a61120", "#ff8809", "#ffd13e"],
         store: 'OpportunitiesByAmount',
 

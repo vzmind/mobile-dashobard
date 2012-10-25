@@ -1,8 +1,6 @@
 Ext.define("MobileDashboard.store.OpportunitiesByMonth", {
     extend: "Ext.data.Store",
-    model: 'MobileDashboard.model.Opportunity',
-    sorters: 'stage',
-    groupField: 'stage',
+    fields: ['date','amount'],
     proxy: {
         type: 'ajax',
         url : 'opportunities_by_month.json'

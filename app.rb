@@ -91,4 +91,20 @@ require 'omniauth-salesforce'
     result.collect{|rep| {'type' => User.find(rep["type"]).Name,'amount' => rep["amount"]}}.to_json
   end
 
+  get '/opportunities_by_month.json' do
+    content_type :json
+    session[:client].materialize('opportunity')
+    opportunities = Opportunity.all
+    r =  opportunities.group_by(&:FiscalYear).map {|k,v| {'year' => k, 'result' => v.group_by(&:FiscalQuarter).map{|k,v| {'quarter'=>k,'amount'=>v.collect{|op|op.Amount}.sum}}.sort_by{|e|e['quarter']}}}
+    r.sort_by!{|y| y['year']}
+    result = []
+    r.each do |record|
+      year = record["year"]
+      record['result'].each do |quarter|
+        result << {'date' => 'Q'+quarter["quarter"].to_s+'-'+year.to_s, 'amount' => quarter['amount']}
+      end
+    end
+    result.to_json
+  end  
+
  
