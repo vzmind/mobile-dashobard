@@ -19,11 +19,11 @@ Ext.define("MobileDashboard.view.PieChart", {
                         },
                       ],
         colors: ["#115fa6", "#94ae0a", "#a61120", "#ff8809", "#ffd13e"],
-        store: 'Opportunities',
+        store: 'OpportunitiesByAmount',
 
         series: [{
             type: 'pie',
-            labelField: 'name',
+            labelField: 'type',
             xField: 'amount',
             donut: 30,
             highlight: {

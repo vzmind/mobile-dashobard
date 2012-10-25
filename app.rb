@@ -63,28 +63,32 @@ require 'omniauth-salesforce'
                         }.to_json
   end
 
-  get '/opportunities.json' do
+  get '/opportunities_by_amount.json' do
+    content_type :json
+    session[:client]
+    opportunities = Opportunity.all
+    opportunities.collect! { |obj| {
+                    :type  => obj.Name,
+                    :amount => obj.Amount
+                  }
+                  }.to_json
+  end
+
+  get '/opportunities_by_type.json' do
     content_type :json
     session[:client].materialize('opportunity')
     opportunities = Opportunity.all
-          opportunities.collect! { |obj| {
-                          :id    => obj.Id,
-                          :name  => obj.Name,
-                          :amount => obj.Amount,
-                          :account => obj.AccountId,
-                          :stage => obj.StageName,
-                          :probability => obj.Probability
-                        }
-                        }.to_json
-    #data = [{'name' => 'Stage 1', 'amount' => 10},
-    #    {'name' => 'metric two', 'amount' => 7},
-    #    {'name' => 'metric three', 'amount' => 5},
-    #    {'name' => 'metric four', 'amount' => 2},
-    #    {'name' => 'metric five', 'amount' => 27}]
-    #data.to_json
-    
+    result = opportunities.group_by(&:Type).map {|k,v| [k, v.collect{|op|op.Amount}]}.collect{|e| {'type' => e[0], 'amount' => e[1].sum}}
+    result.to_json
   end
 
-
+  get '/opportunities_by_rep.json' do
+    content_type :json
+    session[:client].materialize('opportunity')
+    session[:client].materialize('User')
+    opportunities = Opportunity.all
+    result = opportunities.group_by(&:CreatedById).map {|k,v| [k, v.collect{|op|op.Amount}]}.collect{|e| {'type' => e[0], 'amount' => e[1].sum}}
+    result.collect{|rep| {'type' => User.find(rep["type"]).Name,'amount' => rep["amount"]}}.to_json
+  end
 
  

@@ -1,6 +1,6 @@
-Ext.define("MobileDashboard.view.OtherChart", {
+Ext.define("MobileDashboard.view.OpportunitiesByMonth", {
     extend: "Ext.chart.CartesianChart",
-    xtype: "otherchart",
+    xtype: "opportunitiesbymonth",
     config:{
         animate: true,
         width:600,

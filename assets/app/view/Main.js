@@ -30,8 +30,8 @@ Ext.define('MobileDashboard.view.Main', {
             },
             { xtype: 'leadpanel' },
             {
-                title: "Opportunities",
-                iconCls: 'chart1',
+                title: "By Amount",
+                iconCls: 'chart2',
                 items: [
                     {
                         docked: 'top',
@@ -45,18 +45,50 @@ Ext.define('MobileDashboard.view.Main', {
                 ]
             },
             {
-                title: "Other Chart",
+                title: "By Type",
+                iconCls: 'chart1',
+
+                items: [
+                    {
+                        docked: 'top',
+                        xtype: 'titlebar',
+                        title: 'By Type'
+                    },
+                    {
+                        xtype: 'opportunitiesbytype',
+                        title: 'By Type'
+                    }
+                ]
+            },
+            {
+                title: "By Rep",
+                iconCls: 'chart1',
+
+                items: [
+                    {
+                        docked: 'top',
+                        xtype: 'titlebar',
+                        title: 'By Rep'
+                    },
+                    {
+                        xtype: "opportunitiesbyrep",
+                        title: 'By Rep'
+                    }
+                ]
+            },
+            {
+                title: "By Month",
                 iconCls: 'chart2',
 
                 items: [
                     {
                         docked: 'top',
                         xtype: 'titlebar',
-                        title: 'My second chart'
+                        title: 'By Month'
                     },
                     {
-                        xtype: "otherchart",
-                        title: 'An other chart'
+                        xtype: "opportunitiesbymonth",
+                        title: 'By Month'
                     }
                 ]
             }

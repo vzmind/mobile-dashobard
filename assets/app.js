@@ -12,15 +12,20 @@ Ext.application({
         'MobileDashboard.view.Main',
         'MobileDashboard.view.LeadPanel',
         'MobileDashboard.view.PieChart',
-        'MobileDashboard.view.OtherChart',
+        'MobileDashboard.view.OpportunitiesByType',
+        'MobileDashboard.view.OpportunitiesByRep',
+        'MobileDashboard.view.OpportunitiesByMonth',        
         'MobileDashboard.store.SampleStore',
-        'MobileDashboard.store.Opportunities'
+        'MobileDashboard.store.OpportunitiesByAmount',
+        'MobileDashboard.store.OpportunitiesByType',
+        'MobileDashboard.store.OpportunitiesByRep',
+        'MobileDashboard.store.OpportunitiesByMonth'
     ],
     controllers : [
         'App'
     ],
     models: ["Lead","Opportunity"],
-    stores: ["Leads","Opportunities"],
+    stores: ["Leads","OpportunitiesByAmount","OpportunitiesByType","OpportunitiesByRep"],
     views: ['PieChart'],
 
     icon: {
@@ -52,8 +57,13 @@ Ext.application({
 
         //Load up the Store associated with the controller and its views. 
         console.log("load Opportunities");
-        var opportunitiesStore = Ext.getStore("Opportunities");
-        opportunitiesStore.load();
+        var opportunitiesByAmountStore = Ext.getStore("OpportunitiesByAmount");
+        opportunitiesByAmountStore.load();
+        var opportunitiesByTypeStore = Ext.getStore("OpportunitiesByType");
+        opportunitiesByTypeStore.load();
+        var opportunitiesByRepStore = Ext.getStore("OpportunitiesByRep");
+        opportunitiesByRepStore.load();
+
 
         Ext.Viewport.setLayout('fit');
         // Initialize the main view
