@@ -13,3 +13,4 @@ gem 'haml', "3.1.4"
 gem 'heroku', "2.23.0"
 gem 'redis-store'
 gem 'compass'
+gem 'sass'

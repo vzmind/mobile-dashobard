@@ -11,9 +11,12 @@
          */
         html, body {
             height: 100%;
-            background-color: #1985D0
+            background-color: white
         }
-
+        body{
+          margin:100px 0px; padding:0px
+          text-align:center;
+        } 
         #appLoadingIndicator {
             position: absolute;
             top: 50%;
@@ -28,7 +31,7 @@
         }
 
         #appLoadingIndicator > * {
-            background-color: #FFFFFF;
+            background-color: orange;
             display: inline-block;
             height: 30px;
             -webkit-border-radius: 15px;
@@ -51,7 +54,6 @@
           / The line below must be kept intact for Sencha Command to build your application
       %script#microloader{:src => "/touch/microloader/development.js", :type => "text/javascript"}
   %body
-  
     #appLoadingIndicator
       %div
       %div

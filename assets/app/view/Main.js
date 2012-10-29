@@ -23,9 +23,12 @@ Ext.define('MobileDashboard.view.Main', {
                 },
 
                 html: [
-                    "Welcome on that Tquila demonstration Sencha app",
-                    "You will learn here how to connect your Sencha app to Salesforce",
-                    "and how to create beautiful charts with direct data stream from your Org"
+                    "<div class='main'><img class='main' src='/images/logo_tquila.png'>",
+                    "Welcome on that Tquila demonstration Sencha app.<br/>",
+                    "This Sencha app is connected to Salesforce,<br/>",
+                    "gather leads from your orgs to create interactive list<br/>",
+                    "and Opportunities stats to draw beautiful charts.<br/>",
+                    "Enjoy it, Tquila Labs Team</div>"
                 ].join("")
             },
             { xtype: 'leadpanel' },

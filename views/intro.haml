@@ -1,1 +1,19 @@
-%a{:href => "/auth/salesforce"} Sign in with Salesforce
+:css
+	body{
+		margin:100px 0px; padding:0px
+		text-align:center;
+	}	
+	#Content{ 
+		width:500px;
+		margin:0px auto;
+		text-align:left;
+		padding:15px;
+	}
+	.login{
+		margin:100px 0 0 100px;
+	}
+
+#Content
+	%img{:src => "/images/logo_tquila.png", :width => '500px'}
+	%a{:href => "/auth/salesforce"} 
+		%img.login{:src => "/images/logo_salesforce.png", :width => '300px'}
