@@ -42,6 +42,7 @@ require 'omniauth-salesforce'
   end
 
   get '/home' do
+    puts session[:token]
     haml :home
   end
 
@@ -87,7 +88,7 @@ require 'omniauth-salesforce'
     session[:client].materialize('opportunity')
     session[:client].materialize('User')
     opportunities = Opportunity.all
-    result = opportunities.group_by(&:CreatedById).map {|k,v| [k, v.collect{|op|op.Amount}]}.collect{|e| {'type' => e[0], 'amount' => e[1].sum}}
+    result = opportunities.group_by(&:OwnerId).map {|k,v| [k, v.collect{|op|op.Amount}]}.collect{|e| {'type' => e[0], 'amount' => e[1].sum}}
     result.collect{|rep| {'type' => User.find(rep["type"]).Name,'amount' => rep["amount"]}}.to_json
   end
 
