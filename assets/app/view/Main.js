@@ -42,7 +42,7 @@ Ext.define('MobileDashboard.view.Main', {
                         title: 'Opportunities by amount'
                     },
                     {
-                        xtype: "piechart",
+                        xtype: "piecontainer",
                         title: 'a nice pie'
                     }
                 ]

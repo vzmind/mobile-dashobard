@@ -50,6 +50,11 @@ require 'omniauth-salesforce'
     content_type :json
     session[:client].materialize('Lead')
     leads = Lead.all
+    puts params[:filter]
+
+    if params[:filter]
+      leads = leads[0..2]
+    end
           leads.collect! { |obj| {
                           :id    => obj.Id,
                           :name  => obj.LastName,
@@ -67,8 +72,17 @@ require 'omniauth-salesforce'
   get '/opportunities_by_amount.json' do
     content_type :json
     session[:client]
-    opportunities = Opportunity.all
-    opportunities.collect! { |obj| {
+    opps = Opportunity.all
+    if params[:year]
+      opps = opps.select{|o|o['FiscalYear'] == params[:year].to_i}
+    end
+    if params[:stagename] && params[:stagename] != 'any'
+      opps = opps.select{|o|o['StageName'] == params[:stagename]}
+    end
+    if params[:probability] && params[:probability] != 'any'
+      opps = opps.select{|o|o['Probability'] == params[:probability]}
+    end    
+    opps.collect! { |obj| {
                     :type  => obj.Name,
                     :amount => obj.Amount
                   }

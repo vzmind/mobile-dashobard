@@ -61,8 +61,8 @@ Ext.application({
         var opportunitiesByMonthStore = Ext.getStore("OpportunitiesByMonth");
         opportunitiesByMonthStore.load();
 
-        var opportunitiesByAmountStore = Ext.getStore("OpportunitiesByAmount");
-        opportunitiesByAmountStore.load();
+        MobileDashboard.app.loadPieAtYear(2012,'any','any');
+
 
         var opportunitiesByTypeStore = Ext.getStore("OpportunitiesByType");
         opportunitiesByTypeStore.load();
@@ -78,6 +78,17 @@ Ext.application({
             {
                 xtype: 'mainview'
             });
+    },
+
+    loadPieAtYear: function (year,type,probability) {
+        currentYear = year || 2012;
+        currentType = type || 'any';
+        currentProbability = probability || 'any';
+        var opportunitiesByAmountStore = Ext.getStore("OpportunitiesByAmount");
+        var p = opportunitiesByAmountStore.getProxy();
+        p.setUrl('opportunities_by_amount.json?year=' + year + '&stagename=' + type + '&probability=' + probability);
+        opportunitiesByAmountStore.setProxy(p);
+        opportunitiesByAmountStore.load();
     },
 
     onUpdated: function() {
