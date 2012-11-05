@@ -92,8 +92,17 @@ require 'omniauth-salesforce'
   get '/opportunities_by_type.json' do
     content_type :json
     session[:client].materialize('opportunity')
-    opportunities = Opportunity.all
-    result = opportunities.group_by(&:Type).map {|k,v| [k, v.collect{|op|op.Amount}]}.collect{|e| {'type' => e[0], 'amount' => e[1].sum}}
+    opps = Opportunity.all
+    if params[:year]
+      opps = opps.select{|o|o['FiscalYear'] == params[:year].to_i}
+    end
+    if params[:stagename] && params[:stagename] != 'any'
+      opps = opps.select{|o|o['StageName'] == params[:stagename]}
+    end
+    if params[:probability] && params[:probability] != 'any'
+      opps = opps.select{|o|o['Probability'] == params[:probability]}
+    end 
+    result = opps.group_by(&:Type).map {|k,v| [k, v.collect{|op|op.Amount}]}.collect{|e| {'type' => e[0], 'amount' => e[1].sum}}
     result.to_json
   end
 

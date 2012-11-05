@@ -91,6 +91,17 @@ Ext.application({
         opportunitiesByAmountStore.load();
     },
 
+    loadType: function (year,type,probability) {
+        currentYear = year || 2012;
+        currentType = type || 'any';
+        currentProbability = probability || 'any';
+        var opportunitiesByTypeStore = Ext.getStore("OpportunitiesByType");
+        var p = opportunitiesByTypeStore.getProxy();
+        p.setUrl('opportunities_by_type.json?year=' + year + '&stagename=' + type + '&probability=' + probability);
+        opportunitiesByTypeStore.setProxy(p);
+        opportunitiesByTypeStore.load();
+    },
+
     onUpdated: function() {
         Ext.Msg.confirm(
             "Application Update",

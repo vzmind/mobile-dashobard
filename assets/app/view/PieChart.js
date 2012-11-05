@@ -10,8 +10,6 @@ Ext.define("MobileDashboard.view.PieContainer", {
     requires: ['Ext.slider.Slider', 'Ext.picker.Picker'],
     config: {
  
-    title: 'Leads',
-
      //Take up the full space available in the parent container.
     layout: {
             type: 'hbox',

@@ -58,7 +58,7 @@ Ext.define('MobileDashboard.view.Main', {
                         title: 'By Type'
                     },
                     {
-                        xtype: 'opportunitiesbytype',
+                        xtype: 'bytypecontainer',
                         title: 'By Type'
                     }
                 ]
