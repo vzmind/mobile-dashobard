@@ -110,16 +110,31 @@ require 'omniauth-salesforce'
     content_type :json
     session[:client].materialize('opportunity')
     session[:client].materialize('User')
-    opportunities = Opportunity.all
-    result = opportunities.group_by(&:OwnerId).map {|k,v| [k, v.collect{|op|op.Amount}]}.collect{|e| {'type' => e[0], 'amount' => e[1].sum}}
+    opps = Opportunity.all
+    if params[:year]
+      opps = opps.select{|o|o['FiscalYear'] == params[:year].to_i}
+    end
+    if params[:stagename] && params[:stagename] != 'any'
+      opps = opps.select{|o|o['StageName'] == params[:stagename]}
+    end
+    if params[:probability] && params[:probability] != 'any'
+      opps = opps.select{|o|o['Probability'] == params[:probability]}
+    end 
+    result = opps.group_by(&:OwnerId).map {|k,v| [k, v.collect{|op|op.Amount}]}.collect{|e| {'type' => e[0], 'amount' => e[1].sum}}
     result.collect{|rep| {'type' => User.find(rep["type"]).Name,'amount' => rep["amount"]}}.to_json
   end
 
   get '/opportunities_by_month.json' do
     content_type :json
     session[:client].materialize('opportunity')
-    opportunities = Opportunity.all
-    r =  opportunities.group_by(&:FiscalYear).map {|k,v| {'year' => k, 'result' => v.group_by(&:FiscalQuarter).map{|k,v| {'quarter'=>k,'amount'=>v.collect{|op|op.Amount}.sum}}.sort_by{|e|e['quarter']}}}
+    opps = Opportunity.all
+    if params[:stagename] && params[:stagename] != 'any'
+      opps = opps.select{|o|o['StageName'] == params[:stagename]}
+    end
+    if params[:probability] && params[:probability] != 'any'
+      opps = opps.select{|o|o['Probability'] == params[:probability]}
+    end 
+    r =  opps.group_by(&:FiscalYear).map {|k,v| {'year' => k, 'result' => v.group_by(&:FiscalQuarter).map{|k,v| {'quarter'=>k,'amount'=>v.collect{|op|op.Amount}.sum}}.sort_by{|e|e['quarter']}}}
     r.sort_by!{|y| y['year']}
     result = []
     r.each do |record|

@@ -102,6 +102,28 @@ Ext.application({
         opportunitiesByTypeStore.load();
     },
 
+    loadRep: function (year,type,probability) {
+        currentYear = year || 2012;
+        currentType = type || 'any';
+        currentProbability = probability || 'any';
+        var opportunitiesByRepStore = Ext.getStore("OpportunitiesByRep");
+        var p = opportunitiesByRepStore.getProxy();
+        p.setUrl('opportunities_by_rep.json?year=' + year + '&stagename=' + type + '&probability=' + probability);
+        opportunitiesByRepStore.setProxy(p);
+        opportunitiesByRepStore.load();
+    },
+
+
+    loadMonth: function (type,probability) {
+        currentType = type || 'any';
+        currentProbability = probability || 'any';
+        var opportunitiesByMonthStore = Ext.getStore("OpportunitiesByMonth");
+        var p = opportunitiesByMonthStore.getProxy();
+        p.setUrl('opportunities_by_month.json?stagename=' + type + '&probability=' + probability);
+        opportunitiesByMonthStore.setProxy(p);
+        opportunitiesByMonthStore.load();
+    },
+
     onUpdated: function() {
         Ext.Msg.confirm(
             "Application Update",

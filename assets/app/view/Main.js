@@ -74,7 +74,7 @@ Ext.define('MobileDashboard.view.Main', {
                         title: 'By Rep'
                     },
                     {
-                        xtype: "opportunitiesbyrep",
+                        xtype: "byrepcontainer",
                         title: 'By Rep'
                     }
                 ]
@@ -90,7 +90,7 @@ Ext.define('MobileDashboard.view.Main', {
                         title: 'By Month'
                     },
                     {
-                        xtype: "opportunitiesbymonth",
+                        xtype: "bymonthcontainer",
                         title: 'By Month'
                     }
                 ]

@@ -41,6 +41,7 @@ Ext.define("MobileDashboard.view.ByTypeContainer", {
             },
             items: [
                    {
+                        docked: 'top',
                         xtype: 'label',
                         style: {
                             'font-size' :'smaller',
