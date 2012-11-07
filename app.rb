@@ -36,21 +36,27 @@ require 'omniauth-salesforce'
     @client_id = config["client_id"]
     @client_secret = config["client_secret"]
     dbdc = Databasedotcom::Client.new(:client_id => @client_id, :client_secret => @client_secret)
-    dbdc.authenticate :token => session[:token], :instance_url => "http://eu2.salesforce.com"
+    dbdc.authenticate :username => "vincent@tquila.com.demo", :password => "tquila201210"
+    #dbdc.authenticate :token => session[:token], :instance_url => "http://eu2.salesforce.com"
     session[:client] = dbdc
     redirect '/home'
   end
 
   get '/home' do
-    puts session[:token]
+    config = YAML.load_file("config/salesforce.yml") rescue {}
+    @client_id = config["client_id"]
+    @client_secret = config["client_secret"]
+    dbdc = Databasedotcom::Client.new(:client_id => @client_id, :client_secret => @client_secret)
+    dbdc.authenticate :username => "vincent@tquila.com.demo", :password => "tquila201210", :instance_url => "http://eu2.salesforce.com"
+    session[:client] = dbdc
     haml :home
   end
 
   get '/leads.json' do
+    puts "phonegap calling me"
     content_type :json
     session[:client].materialize('Lead')
     leads = Lead.all
-    puts params[:filter]
 
     if params[:filter]
       leads = leads[0..2]
