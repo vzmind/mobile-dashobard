@@ -14,6 +14,6 @@ Ext.define("MobileDashboard.store.Leads", {
     },
     proxy: {
         type: 'ajax',
-        url : 'leads.json'
+        url : 'https://127.0.0.1:3000/leads.json'
     }
 });
