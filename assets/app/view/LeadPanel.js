@@ -22,7 +22,7 @@ Ext.define("MobileDashboard.view.LeadPanel", {
     items: [
     {
       //The main list and its properties. 
-      xtype: "leadscard",
+      xtype: "leadscard"
     }]
   }
 });

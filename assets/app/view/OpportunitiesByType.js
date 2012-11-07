@@ -19,14 +19,14 @@ Ext.define("MobileDashboard.view.ByTypeContainer", {
     //Add the components to include within the list view. 
     items: [
         {
-            xtype: 'opportunitiesbytype',
+            xtype: 'opportunitiesbytype'
         },
         {
           docked: 'right',
           maxWidth: '30%', 
           height: 'auto',
           style: {
-            'background': 'white',
+            'background': 'white'
           },  
           items: [
             {
@@ -37,14 +37,14 @@ Ext.define("MobileDashboard.view.ByTypeContainer", {
                 centered: true,
                 style: {
                     'background': 'white'
-                },   
+                }
             },
             items: [
                    {
                         docked: 'top',
                         xtype: 'label',
                         style: {
-                            'font-size' :'smaller',
+                            'font-size' :'smaller'
                         },
                         cls: ['yearlabel', 'x-title'],
                         html: '2009'
@@ -67,7 +67,7 @@ Ext.define("MobileDashboard.view.ByTypeContainer", {
                     {
                         xtype: 'label',
                         style: {
-                            'font-size': 'smaller',
+                            'font-size': 'smaller'
                         },
                         cls: ['yearlabel', 'x-title'],
                         html: '2012'
@@ -104,7 +104,7 @@ Ext.define("MobileDashboard.view.ByTypeContainer", {
                             {text: '70%', value: '70'},
                             {text: '80%', value: '80'},
                             {text: '90%', value: '90'},
-                            {text: '100%', value: '100'},
+                            {text: '100%', value: '100'}
                         ],
                         listeners: {
                             change: function (field, newvalue, oldvalue, opts) {

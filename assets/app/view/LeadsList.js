@@ -40,6 +40,6 @@ Ext.define("MobileDashboard.view.LeadsList", {
       //One row will display for each record in the data Store.
       //The fields referenced are from the entity's Model. 
       itemTpl: '<div class="list-item-line-main"><strong>{name}</strong></div><div class="list-item-line-detail">{company}</div>'
-    }],
+    }]
   }
 });

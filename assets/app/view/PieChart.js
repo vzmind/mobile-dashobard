@@ -19,13 +19,13 @@ Ext.define("MobileDashboard.view.PieContainer", {
     //Add the components to include within the list view. 
     items: [
         {
-            xtype: 'piechart',
+            xtype: 'piechart'
         },
         {
           docked: 'bottom',
           maxWidth: 'auto', 
           style: {
-            'background': 'white',
+            'background': 'white'
           },  
           items: [
             {
@@ -36,13 +36,13 @@ Ext.define("MobileDashboard.view.PieContainer", {
                 centered: true,
                 style: {
                     'background': 'white'
-                },   
+                }  
             },
             items: [
                    {
                         xtype: 'label',
                         style: {
-                            'font-size' :'smaller',
+                            'font-size' :'smaller'
                         },
                         cls: ['yearlabel', 'x-title'],
                         html: '2009'
@@ -65,7 +65,7 @@ Ext.define("MobileDashboard.view.PieContainer", {
                     {
                         xtype: 'label',
                         style: {
-                            'font-size': 'smaller',
+                            'font-size': 'smaller'
                         },
                         cls: ['yearlabel', 'x-title'],
                         html: '2012'
@@ -102,7 +102,7 @@ Ext.define("MobileDashboard.view.PieContainer", {
                             {text: '70%', value: '70'},
                             {text: '80%', value: '80'},
                             {text: '90%', value: '90'},
-                            {text: '100%', value: '100'},
+                            {text: '100%', value: '100'}
                         ],
                         listeners: {
                             change: function (field, newvalue, oldvalue, opts) {
@@ -152,7 +152,7 @@ Ext.define("MobileDashboard.view.PieChart", {
               segment: {
                 margin: 20
               }
-            },
+            }
 
 
             }

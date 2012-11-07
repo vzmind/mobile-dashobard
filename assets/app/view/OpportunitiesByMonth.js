@@ -19,14 +19,14 @@ Ext.define("MobileDashboard.view.ByMonthContainer", {
     //Add the components to include within the list view. 
     items: [
         {
-            xtype: 'opportunitiesbymonth',
+            xtype: 'opportunitiesbymonth'
         },
         {
           docked: 'right',
           maxWidth: '30%', 
           height: 'auto',
           style: {
-            'background': 'white',
+            'background': 'white'
           },  
           items: [
             {
@@ -37,7 +37,7 @@ Ext.define("MobileDashboard.view.ByMonthContainer", {
                 centered: true,
                 style: {
                     'background': 'white'
-                },   
+                }
             },
             items: [
                     {
@@ -72,7 +72,7 @@ Ext.define("MobileDashboard.view.ByMonthContainer", {
                             {text: '70%', value: '70'},
                             {text: '80%', value: '80'},
                             {text: '90%', value: '90'},
-                            {text: '100%', value: '100'},
+                            {text: '100%', value: '100'}
                         ],
                         listeners: {
                             change: function (field, newvalue, oldvalue, opts) {

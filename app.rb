@@ -78,6 +78,8 @@ require 'omniauth-salesforce'
   get '/opportunities_by_amount.json' do
     content_type :json
     session[:client]
+    session[:client].materialize('Opportunity')
+
     opps = Opportunity.all
     if params[:year]
       opps = opps.select{|o|o['FiscalYear'] == params[:year].to_i}
