@@ -39,7 +39,7 @@
             "path": "cordova-2.1.0.js"
         },
         {
-            "path": "touch/sencha-touch-all.js"
+            "path": "touch/sencha-touch-debug.js"
 
         },
         {

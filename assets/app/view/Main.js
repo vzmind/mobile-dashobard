@@ -31,70 +31,7 @@ Ext.define('MobileDashboard.view.Main', {
                     "Enjoy it, Tquila Labs Team</div>"
                 ].join("")
             },
-            { xtype: 'leadpanel' },
-            {
-                title: "By Amount",
-                iconCls: 'chart2',
-                items: [
-                    {
-                        docked: 'top',
-                        xtype: 'titlebar',
-                        title: 'Opportunities by amount'
-                    },
-                    {
-                        xtype: "piecontainer",
-                        title: 'a nice pie'
-                    }
-                ]
-            },
-            {
-                title: "By Type",
-                iconCls: 'chart1',
-
-                items: [
-                    {
-                        docked: 'top',
-                        xtype: 'titlebar',
-                        title: 'By Type'
-                    },
-                    {
-                        xtype: 'bytypecontainer',
-                        title: 'By Type'
-                    }
-                ]
-            },
-            {
-                title: "By Rep",
-                iconCls: 'chart1',
-
-                items: [
-                    {
-                        docked: 'top',
-                        xtype: 'titlebar',
-                        title: 'By Rep'
-                    },
-                    {
-                        xtype: "byrepcontainer",
-                        title: 'By Rep'
-                    }
-                ]
-            },
-            {
-                title: "By Month",
-                iconCls: 'chart2',
-
-                items: [
-                    {
-                        docked: 'top',
-                        xtype: 'titlebar',
-                        title: 'By Month'
-                    },
-                    {
-                        xtype: "bymonthcontainer",
-                        title: 'By Month'
-                    }
-                ]
-            }
+            { xtype: 'leadpanel' }
         ]
     }
 });

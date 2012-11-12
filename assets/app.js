@@ -88,7 +88,7 @@ Ext.application({
         currentProbability = probability || 'any';
         var opportunitiesByAmountStore = Ext.getStore("OpportunitiesByAmount");
         var p = opportunitiesByAmountStore.getProxy();
-        p.setUrl('opportunities_by_amount.json?year=' + year + '&stagename=' + type + '&probability=' + probability);
+        //p.setUrl('opportunities_by_amount.json?year=' + year + '&stagename=' + type + '&probability=' + probability);
         opportunitiesByAmountStore.setProxy(p);
         opportunitiesByAmountStore.load();
     },
@@ -99,7 +99,7 @@ Ext.application({
         currentProbability = probability || 'any';
         var opportunitiesByTypeStore = Ext.getStore("OpportunitiesByType");
         var p = opportunitiesByTypeStore.getProxy();
-        p.setUrl('opportunities_by_type.json?year=' + year + '&stagename=' + type + '&probability=' + probability);
+        //p.setUrl('opportunities_by_type.json?year=' + year + '&stagename=' + type + '&probability=' + probability);
         opportunitiesByTypeStore.setProxy(p);
         opportunitiesByTypeStore.load();
     },
@@ -121,7 +121,7 @@ Ext.application({
         currentProbability = probability || 'any';
         var opportunitiesByMonthStore = Ext.getStore("OpportunitiesByMonth");
         var p = opportunitiesByMonthStore.getProxy();
-        p.setUrl('opportunities_by_month.json?stagename=' + type + '&probability=' + probability);
+        //p.setUrl('opportunities_by_month.json?stagename=' + type + '&probability=' + probability);
         opportunitiesByMonthStore.setProxy(p);
         opportunitiesByMonthStore.load();
     },
