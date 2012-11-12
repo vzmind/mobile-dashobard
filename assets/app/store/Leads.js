@@ -7,13 +7,15 @@
 //The Store contains the AjaxProxy as an inline configuration
 Ext.define("MobileDashboard.store.Leads", {
     extend: "Ext.data.Store",
-    model: 'MobileDashboard.model.Lead',
-    sorters: 'company',
-    grouper: function(record){
-    	return record.get('company');
-    },
-    proxy: {
-        type: 'ajax',
-        url : 'https://127.0.0.1:3000/leads.json'
+    config: {
+        model: 'MobileDashboard.model.Lead',
+        sorters: 'company',
+        grouper: function(record){
+        	return record.get('company');
+        },
+        proxy: {
+            type: 'ajax',
+            url : 'https://127.0.0.1:3000/leads.json'
+        }
     }
 });

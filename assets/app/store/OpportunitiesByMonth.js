@@ -1,8 +1,10 @@
 Ext.define("MobileDashboard.store.OpportunitiesByMonth", {
     extend: "Ext.data.Store",
-    fields: ['date','amount'],
-    proxy: {
-        type: 'ajax',
-        url : 'opportunities_by_month.json'
-    }
+    config:{
+	    fields: ['date','amount'],
+	    proxy: {
+	        type: 'ajax',
+	        url : 'https://127.0.0.1:3000/opportunities_by_month.json'
+	    }
+	}
 });

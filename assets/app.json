@@ -36,6 +36,9 @@
      */
     "js": [
         {
+            "path": "cordova-2.1.0.js"
+        },
+        {
             "path": "touch/sencha-touch-all.js"
 
         },
@@ -119,7 +122,7 @@
     "buildPaths": {
         "testing": "build/testing",
         "production": "build/production",
-        "package": "phonegap/www",
+        "package": "build/phonegap",
         "native": "build/native"
     },
 

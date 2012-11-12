@@ -50,7 +50,7 @@ Ext.define("MobileDashboard.view.ByTypeContainer", {
                         html: '2009'
                     },
                     {
-                        id: 'opportunityyear',
+                        id: 'opportunityyear4',
                         xtype: "sliderfield",
                         minValue: 2009,
                         maxValue: 2012,
@@ -60,7 +60,7 @@ Ext.define("MobileDashboard.view.ByTypeContainer", {
                         listeners: {
                             change: function (field,sl,thumb, newvalue,oldvalue,opts) {
                                 //Ext.getCmp('currentYearLabel').setTitle('Data For ' + newvalue);
-                                MobileDashboard.app.loadType(newvalue,field.parent.getComponent('opportunitytype').getValue(),field.parent.getComponent('opportunityprobability').getValue());
+                                MobileDashboard.app.loadType(newvalue,field.parent.getComponent('opportunitytype4').getValue(),field.parent.getComponent('opportunityprobability4').getValue());
                             }
                         }
                     },
@@ -73,7 +73,7 @@ Ext.define("MobileDashboard.view.ByTypeContainer", {
                         html: '2012'
                     },
                     {
-                        id: 'opportunitytype',
+                        id: 'opportunitytype4',
                         xtype: 'selectfield',
                         label: 'Stage',
                         options: [
@@ -85,12 +85,12 @@ Ext.define("MobileDashboard.view.ByTypeContainer", {
                         listeners: {
                             change: function (field, newvalue, oldvalue, opts) {
                                 //Ext.getCmp('currentYearLabel').setTitle('Data For ' + newvalue);
-                                MobileDashboard.app.loadType(field.parent.getComponent('opportunityyear').getValue(),newvalue,field.parent.getComponent('opportunityprobability').getValue());
+                                MobileDashboard.app.loadType(field.parent.getComponent('opportunityyear4').getValue(),newvalue,field.parent.getComponent('opportunityprobability4').getValue());
                             }
                         }
                     },
                     {
-                        id: 'opportunityprobability',
+                        id: 'opportunityprobability4',
                         xtype: 'selectfield',
                         label: 'Probability',
                         options: [
@@ -109,7 +109,7 @@ Ext.define("MobileDashboard.view.ByTypeContainer", {
                         listeners: {
                             change: function (field, newvalue, oldvalue, opts) {
                                 //Ext.getCmp('currentYearLabel').setTitle('Data For ' + newvalue);
-                                MobileDashboard.app.loadType(field.parent.getComponent('opportunityyear').getValue(),field.parent.getComponent('opportunitytype').getValue(),newvalue);
+                                MobileDashboard.app.loadType(field.parent.getComponent('opportunityyear4').getValue(),field.parent.getComponent('opportunitytype4').getValue(),newvalue);
                             }
                         }
                     }    

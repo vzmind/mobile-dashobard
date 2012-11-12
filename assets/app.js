@@ -9,6 +9,8 @@ Ext.application({
     name: 'MobileDashboard',
 
     requires: [
+        'Ext.slider.Slider',
+        'Ext.picker.Picker',
         'MobileDashboard.view.Main',
         'MobileDashboard.view.LeadPanel',
         'MobileDashboard.view.PieChart',
