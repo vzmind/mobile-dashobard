@@ -54,8 +54,14 @@ require 'omniauth-salesforce'
 
   get '/leads.json' do
     puts "phonegap calling me"
+    config = YAML.load_file("config/salesforce.yml") rescue {}
+    @client_id = config["client_id"]
+    @client_secret = config["client_secret"]
+    dbdc = Databasedotcom::Client.new(:client_id => @client_id, :client_secret => @client_secret)
+    dbdc.authenticate :username => "vincent@tquila.com.demo", :password => "tquila201210", :instance_url => "http://eu2.salesforce.com"
+   
     content_type :json
-    session[:client].materialize('Lead')
+    dbdc.materialize('Lead')
     leads = Lead.all
 
     if params[:filter]
@@ -77,8 +83,12 @@ require 'omniauth-salesforce'
 
   get '/opportunities_by_amount.json' do
     content_type :json
-    session[:client]
-    session[:client].materialize('Opportunity')
+    config = YAML.load_file("config/salesforce.yml") rescue {}
+    @client_id = config["client_id"]
+    @client_secret = config["client_secret"]
+    dbdc = Databasedotcom::Client.new(:client_id => @client_id, :client_secret => @client_secret)
+    dbdc.authenticate :username => "vincent@tquila.com.demo", :password => "tquila201210", :instance_url => "http://eu2.salesforce.com"
+    dbdc.materialize('Opportunity')
 
     opps = Opportunity.all
     if params[:year]
@@ -99,7 +109,12 @@ require 'omniauth-salesforce'
 
   get '/opportunities_by_type.json' do
     content_type :json
-    session[:client].materialize('opportunity')
+    config = YAML.load_file("config/salesforce.yml") rescue {}
+    @client_id = config["client_id"]
+    @client_secret = config["client_secret"]
+    dbdc = Databasedotcom::Client.new(:client_id => @client_id, :client_secret => @client_secret)
+    dbdc.authenticate :username => "vincent@tquila.com.demo", :password => "tquila201210", :instance_url => "http://eu2.salesforce.com"
+    dbdc.materialize('opportunity')
     opps = Opportunity.all
     if params[:year]
       opps = opps.select{|o|o['FiscalYear'] == params[:year].to_i}
@@ -116,8 +131,13 @@ require 'omniauth-salesforce'
 
   get '/opportunities_by_rep.json' do
     content_type :json
-    session[:client].materialize('opportunity')
-    session[:client].materialize('User')
+    config = YAML.load_file("config/salesforce.yml") rescue {}
+    @client_id = config["client_id"]
+    @client_secret = config["client_secret"]
+    dbdc = Databasedotcom::Client.new(:client_id => @client_id, :client_secret => @client_secret)
+    dbdc.authenticate :username => "vincent@tquila.com.demo", :password => "tquila201210", :instance_url => "http://eu2.salesforce.com"
+    dbdc.materialize('opportunity')
+    dbdc[:client].materialize('User')
     opps = Opportunity.all
     if params[:year]
       opps = opps.select{|o|o['FiscalYear'] == params[:year].to_i}
@@ -134,7 +154,12 @@ require 'omniauth-salesforce'
 
   get '/opportunities_by_month.json' do
     content_type :json
-    session[:client].materialize('opportunity')
+    config = YAML.load_file("config/salesforce.yml") rescue {}
+    @client_id = config["client_id"]
+    @client_secret = config["client_secret"]
+    dbdc = Databasedotcom::Client.new(:client_id => @client_id, :client_secret => @client_secret)
+    dbdc.authenticate :username => "vincent@tquila.com.demo", :password => "tquila201210", :instance_url => "http://eu2.salesforce.com"
+    dbdc.materialize('opportunity')
     opps = Opportunity.all
     if params[:stagename] && params[:stagename] != 'any'
       opps = opps.select{|o|o['StageName'] == params[:stagename]}
