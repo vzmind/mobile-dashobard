@@ -137,7 +137,7 @@ require 'omniauth-salesforce'
     dbdc = Databasedotcom::Client.new(:client_id => @client_id, :client_secret => @client_secret)
     dbdc.authenticate :username => "vincent@tquila.com.demo", :password => "tquila201210", :instance_url => "http://eu2.salesforce.com"
     dbdc.materialize('opportunity')
-    dbdc[:client].materialize('User')
+    dbdc.materialize('User')
     opps = Opportunity.all
     if params[:year]
       opps = opps.select{|o|o['FiscalYear'] == params[:year].to_i}
