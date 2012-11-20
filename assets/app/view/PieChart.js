@@ -7,7 +7,7 @@
 Ext.define("MobileDashboard.view.PieContainer", {
     extend: 'Ext.Panel',
     xtype: 'piecontainer',
-    requires: ['Ext.slider.Slider', 'Ext.picker.Picker'],
+    requires: ['Ext.slider.Slider', 'Ext.picker.Picker','Ext.chart.series.Pie','Ext.chart.interactions.Rotate','Ext.chart.interactions.ItemInfo','Ext.form.Panel','Ext.Label','Ext.field.Slider','Ext.field.Select'],
     config: {
  
      //Take up the full space available in the parent container.

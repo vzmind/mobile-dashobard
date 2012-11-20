@@ -7,7 +7,7 @@
 Ext.define("MobileDashboard.view.ByTypeContainer", {
     extend: 'Ext.Panel',
     xtype: 'bytypecontainer',
-    requires: ['Ext.slider.Slider', 'Ext.picker.Picker'],
+    requires: ['Ext.slider.Slider', 'Ext.picker.Picker','Ext.chart.series.Bar'],
     config: {
  
      //Take up the full space available in the parent container.

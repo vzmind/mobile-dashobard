@@ -24,7 +24,7 @@
 	<true/>
 	<key>ExternalHosts</key>
 	<array>
-		<string>https://127.0.0.1:3000</string>
+		<string>http://tquila-mobile-dashboard.herokuapp.com</string>
 	</array>
 	<key>Plugins</key>
 	<dict>

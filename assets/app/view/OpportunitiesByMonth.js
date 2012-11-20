@@ -7,7 +7,7 @@
 Ext.define("MobileDashboard.view.ByMonthContainer", {
     extend: 'Ext.Panel',
     xtype: 'bymonthcontainer',
-    requires: ['Ext.slider.Slider', 'Ext.picker.Picker'],
+    requires: ['Ext.slider.Slider', 'Ext.picker.Picker','Ext.chart.axis.Numeric','Ext.chart.axis.Category','Ext.chart.series.Line'],
     config: {
  
      //Take up the full space available in the parent container.

@@ -15,7 +15,8 @@ Ext.define("MobileDashboard.store.Leads", {
         },
         proxy: {
             type: 'ajax',
-            url : 'https://127.0.0.1:3000/leads.json'
+            url : 'http://tquila-mobile-dashboard.herokuapp.com/leads.json'
+            //url : 'http://127.0.0.1:3000/leads.json'
         }
     }
 });
